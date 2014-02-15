@@ -5,16 +5,33 @@ using System.Text;
 
 namespace WalkingRobot
 {
-    public class Direcao
+    public struct Direcao
     {
-        public Direcao(short X, short Y)
+        public static Direcao Direita = new Direcao(1, 0);
+
+        public static Direcao Esquerda = new Direcao(-1, 0);
+
+        private short x;
+        private short y;
+
+        private Direcao(short x, short y)
         {
-            this.X = X;
-            this.Y = Y;
+            this.x = x;
+            this.y = y;
         }
 
-        public short X { get; private set; }
+        public short X { get { return x; } }
 
-        public short Y { get; private set; }
+        public short Y { get { return y; } }
+
+        public static bool operator ==(Direcao direcaoA, Direcao direcaoB)
+        {
+            return direcaoA.Equals(direcaoB);
+        }
+
+        public static bool operator !=(Direcao direcaoA, Direcao direcaoB)
+        {
+            return !direcaoA.Equals(direcaoB);
+        }
     }
 }

@@ -54,6 +54,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="PosicaoTestes.cs" />
+    <Compile Include="DirecaoTestes.cs" />
     <Compile Include="RoboTestes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

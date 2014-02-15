@@ -20,8 +20,7 @@ namespace WalkingRobot.Testes
         {
             robo.Esquerda();
 
-            robo.Direcao.X.Should().Be(-1);
-            robo.Direcao.Y.Should().Be(0);
+            robo.Direcao.Should().Be(Direcao.Esquerda);
         }
 
         [Test]
@@ -29,8 +28,7 @@ namespace WalkingRobot.Testes
         {
             robo.Direita();
 
-            robo.Direcao.X.Should().Be(1);
-            robo.Direcao.Y.Should().Be(0);
+            robo.Direcao.Should().Be(Direcao.Direita);
         }
     }
 }

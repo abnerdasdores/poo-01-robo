@@ -8,16 +8,28 @@ namespace WalkingRobot
 {
     public class Robo
     {
+        public Robo()
+        {
+            Posicao = new Posicao(0, 0);
+        }
+
+        public Robo(Posicao posicao)
+        {
+            Posicao = posicao;
+        }
+
         public Direcao Direcao { get; private set; }
+
+        public Posicao Posicao { get; private set; }
 
         public void Esquerda()
         {
-            Direcao = new Direcao(-1, 0);
+            Direcao = WalkingRobot.Direcao.Esquerda;
         }
 
         public void Direita()
         {
-            Direcao = new Direcao(1, 0);
+            Direcao = WalkingRobot.Direcao.Direita;
         }
     }
 }
