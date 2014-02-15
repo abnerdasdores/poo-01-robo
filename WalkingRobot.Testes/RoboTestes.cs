@@ -23,5 +23,14 @@ namespace WalkingRobot.Testes
             robo.Direcao.X.Should().Be(-1);
             robo.Direcao.Y.Should().Be(0);
         }
+
+        [Test]
+        public void DeveVirarParaADireita()
+        {
+            robo.Direita();
+
+            robo.Direcao.X.Should().Be(1);
+            robo.Direcao.Y.Should().Be(0);
+        }
     }
 }

@@ -8,11 +8,16 @@ namespace WalkingRobot
 {
     public class Robo
     {
+        public Direcao Direcao { get; private set; }
+
         public void Esquerda()
         {
             Direcao = new Direcao(-1, 0);
         }
 
-        public Direcao Direcao { get; private set; }
+        public void Direita()
+        {
+            Direcao = new Direcao(1, 0);
+        }
     }
 }
