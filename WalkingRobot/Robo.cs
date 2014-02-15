@@ -10,7 +10,7 @@ namespace WalkingRobot
     {
         public void Esquerda()
         {
-            throw new NotImplementedException();
+            Direcao = new Direcao(-1, 0);
         }
 
         public Direcao Direcao { get; private set; }
