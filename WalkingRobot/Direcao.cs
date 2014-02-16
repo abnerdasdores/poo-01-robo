@@ -24,6 +24,22 @@ namespace WalkingRobot
 
         public short Y { get { return y; } }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            var direcao = (Direcao)obj;
+
+            return x == direcao.X && y == direcao.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            return x ^ y;
+        }
+
         public static bool operator ==(Direcao direcaoA, Direcao direcaoB)
         {
             return direcaoA.Equals(direcaoB);
