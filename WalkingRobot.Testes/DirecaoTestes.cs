@@ -54,5 +54,25 @@ namespace WalkingRobot.Testes
 
             saoDiferentes.Should().BeFalse();
         }
+
+        [Test]
+        public void DeveRetornarAPosicaoParaIncrementoQuandoADirecaoForEsquerda()
+        {
+            var direcao = Direcao.Esquerda;
+            var incrementoPosicao = direcao.ObterIncrementoParaPosicao();
+
+            var posicao = new Posicao(-1, 0);
+            incrementoPosicao.Should().Be(posicao);
+        }
+
+        [Test]
+        public void DeveRetornarAPosicaoParaIncrementoQuandoADirecaoForDireita()
+        {
+            var direcao = Direcao.Direita;
+            var incrementoPosicao = direcao.ObterIncrementoParaPosicao();
+
+            var posicao = new Posicao(1, 0);
+            incrementoPosicao.Should().Be(posicao);
+        }
     }
 }

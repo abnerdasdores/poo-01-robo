@@ -52,5 +52,14 @@ namespace WalkingRobot.Testes
             var posicao = new Posicao(1, 0);
             robo.Posicao.Should().Be(posicao);
         }
+
+        [Test]
+        public void DeveLancarExcecaoAoTentarAndarSemUmaDirecaoDefinida()
+        {
+            Action acao = () => robo.Andar();
+
+            acao.ShouldThrow<InvalidOperationException>()
+                    .WithMessage("O robô não possui uma direção definida");
+        }
     }
 }

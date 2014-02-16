@@ -18,7 +18,7 @@ namespace WalkingRobot
             Posicao = posicao;
         }
 
-        public Direcao Direcao { get; private set; }
+        public Direcao? Direcao { get; private set; }
 
         public Posicao Posicao { get; private set; }
 
@@ -34,9 +34,11 @@ namespace WalkingRobot
 
         public void Andar()
         {
-            Posicao incremento = new Posicao(Direcao.X, Direcao.Y);
-
-            Posicao = Posicao + incremento;
+            if (Direcao == null)
+            {
+                throw new InvalidOperationException("O robô não possui uma direção definida");
+            }
+            Posicao = Posicao + Direcao.Value.ObterIncrementoParaPosicao();
         }
     }
 }

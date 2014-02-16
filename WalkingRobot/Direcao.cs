@@ -33,5 +33,10 @@ namespace WalkingRobot
         {
             return !direcaoA.Equals(direcaoB);
         }
+
+        public Posicao ObterIncrementoParaPosicao()
+        {
+            return new Posicao(x, y);
+        }
     }
 }
