@@ -29,5 +29,10 @@ namespace WalkingRobot
         {
             return !posicaoA.Equals(posicaoB);
         }
+
+        public static Posicao operator +(Posicao posicaoA, Posicao posicaoB)
+        {
+            return new Posicao(posicaoA.X + posicaoB.X,  posicaoA.Y + posicaoB.Y);
+        }
     }
 }

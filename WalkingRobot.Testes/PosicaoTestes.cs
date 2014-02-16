@@ -55,5 +55,23 @@ namespace WalkingRobot.Testes
 
             saoDiferentes.Should().BeFalse();
         }
+
+        [Test]
+        [TestCase(0, 0, 0, 0, 0, 0)]
+        [TestCase(1, 2, 3, 4, 4, 6)]
+        [TestCase(1, 2, -3, -4, -2, -2)]
+        [TestCase(-3, -5, 2, 3, -1, -2)]
+        [TestCase(-2, -1, -5, -3, -7, -4)]
+        public void DeveSomarDuasPosicoes(int posicao1X, int posicao1Y, int posicao2X, int posicao2Y,
+                                            int posicaoResX, int posicaoResY)
+        {
+            var posicao1 = new Posicao(posicao1X, posicao1Y);
+            var posicao2 = new Posicao(posicao2X, posicao2Y);
+            var posicaoResultante = new Posicao(posicaoResX, posicaoResY);
+
+            var resultado = posicao1 + posicao2;
+
+            resultado.Should().Be(posicaoResultante);
+        }
     }
 }

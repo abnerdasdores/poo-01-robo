@@ -30,5 +30,27 @@ namespace WalkingRobot.Testes
 
             robo.Direcao.Should().Be(Direcao.Direita);
         }
+
+        [Test]
+        public void DeveAndarParaAEsquedaQuandoADirecaoForEsquerda()
+        {
+            robo.Esquerda();
+
+            robo.Andar();
+
+            var posicao = new Posicao(-1, 0);
+            robo.Posicao.Should().Be(posicao);
+        }
+
+        [Test]
+        public void DeveAndarParaAEsquedaQuandoADirecaoForDireita()
+        {
+            robo.Direita();
+
+            robo.Andar();
+
+            var posicao = new Posicao(1, 0);
+            robo.Posicao.Should().Be(posicao);
+        }
     }
 }

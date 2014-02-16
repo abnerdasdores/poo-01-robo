@@ -31,5 +31,12 @@ namespace WalkingRobot
         {
             Direcao = WalkingRobot.Direcao.Direita;
         }
+
+        public void Andar()
+        {
+            Posicao incremento = new Posicao(Direcao.X, Direcao.Y);
+
+            Posicao = Posicao + incremento;
+        }
     }
 }
