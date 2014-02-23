@@ -7,19 +7,15 @@ namespace WalkingRobot
 {
     public struct Posicao
     {
-        private int x;
-        private int y;
+        public readonly int X;
+        public readonly int Y;
 
         public Posicao(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
-
-        public int X { get { return x; } }
-
-        public int Y { get { return y; } }
-
+        
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
@@ -28,12 +24,12 @@ namespace WalkingRobot
             }
             var posicao = (Posicao)obj;
 
-            return x == posicao.X && y == posicao.Y;
+            return X == posicao.X && Y == posicao.Y;
         }
 
         public override int GetHashCode()
         {
-            return x ^ y;
+            return X ^ Y;
         }
 
         public static bool operator ==(Posicao posicaoA, Posicao posicaoB)
