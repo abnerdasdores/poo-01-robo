@@ -17,7 +17,9 @@ namespace WalkingRobot.Testes
         [Test]
         public void DeveVirarParaAEsquerda()
         {
-            robo.MudarDirecao(Direcao.Oeste);
+            robo = new Robo(Direcao.Leste);
+
+            robo = robo.MudarDirecao(Direcao.Oeste);
 
             robo.Direcao.Should().Be(Direcao.Oeste);
         }
@@ -25,7 +27,9 @@ namespace WalkingRobot.Testes
         [Test]
         public void DeveVirarParaADireita()
         {
-            robo.MudarDirecao(Direcao.Leste);
+            robo = new Robo(Direcao.Oeste);
+
+            robo = robo.MudarDirecao(Direcao.Leste);
 
             robo.Direcao.Should().Be(Direcao.Leste);
         }
@@ -33,9 +37,9 @@ namespace WalkingRobot.Testes
         [Test]
         public void DeveAndarParaAEsquerdaQuandoADirecaoForEsquerda()
         {
-            robo.MudarDirecao(Direcao.Oeste);
+            robo = robo.MudarDirecao(Direcao.Oeste);
 
-            robo.Andar();
+            robo = robo.Andar();
 
             var posicao = new Posicao(-1, 0);
             robo.Posicao.Should().Be(posicao);
@@ -44,9 +48,9 @@ namespace WalkingRobot.Testes
         [Test]
         public void DeveAndarParaADireitaQuandoADirecaoForDireita()
         {
-            robo.MudarDirecao(Direcao.Leste);
+            robo = robo.MudarDirecao(Direcao.Leste);
 
-            robo.Andar();
+            robo = robo.Andar();
 
             var posicao = new Posicao(1, 0);
             robo.Posicao.Should().Be(posicao);
