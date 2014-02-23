@@ -1,44 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WalkingRobot
+﻿namespace WalkingRobot
 {
     public class Robo
     {
         public Robo()
-        {
-            Posicao = new Posicao(0, 0);
-        }
+            : this(new Posicao(0, 0), Direcao.Leste)
+        { }
 
         public Robo(Posicao posicao)
+            : this(posicao, Direcao.Leste)
+        { }
+
+        public Robo(Direcao direcao)
+            : this(new Posicao(0, 0), direcao)
+        { }
+
+        public Robo(Posicao posicao, Direcao direcao)
         {
             Posicao = posicao;
+            Direcao = direcao;
         }
 
-        public Direcao? Direcao { get; private set; }
+        public Direcao Direcao { get; private set; }
 
         public Posicao Posicao { get; private set; }
 
-        public void Esquerda()
+        public void MudarDirecao(Direcao direcao)
         {
-            Direcao = WalkingRobot.Direcao.Esquerda;
+            Direcao = direcao;
         }
-
-        public void Direita()
-        {
-            Direcao = WalkingRobot.Direcao.Direita;
-        }
-
+        
         public void Andar()
         {
-            if (Direcao == null)
-            {
-                throw new InvalidOperationException("O robô não possui uma direção definida");
-            }
-            Posicao = Posicao + Direcao.Value.ObterIncrementoParaPosicao();
+            Posicao = Posicao + IncrementoPosicao.ObterIncremento(Direcao);
         }
     }
 }

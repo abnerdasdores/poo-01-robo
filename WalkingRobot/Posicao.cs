@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace WalkingRobot
+﻿namespace WalkingRobot
 {
     public struct Posicao
     {
@@ -45,6 +40,11 @@ namespace WalkingRobot
         public static Posicao operator +(Posicao posicaoA, Posicao posicaoB)
         {
             return new Posicao(posicaoA.X + posicaoB.X, posicaoA.Y + posicaoB.Y);
+        }
+
+        public static Posicao operator +(Posicao posicao, IncrementoPosicao incremento)
+        {
+            return posicao + new Posicao(incremento.X, incremento.Y);
         }
     }
 }

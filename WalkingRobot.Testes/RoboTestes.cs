@@ -1,6 +1,5 @@
-﻿using System;
+﻿using FluentAssertions;
 using NUnit.Framework;
-using FluentAssertions;
 
 namespace WalkingRobot.Testes
 {
@@ -18,23 +17,23 @@ namespace WalkingRobot.Testes
         [Test]
         public void DeveVirarParaAEsquerda()
         {
-            robo.Esquerda();
+            robo.MudarDirecao(Direcao.Oeste);
 
-            robo.Direcao.Should().Be(Direcao.Esquerda);
+            robo.Direcao.Should().Be(Direcao.Oeste);
         }
 
         [Test]
         public void DeveVirarParaADireita()
         {
-            robo.Direita();
+            robo.MudarDirecao(Direcao.Leste);
 
-            robo.Direcao.Should().Be(Direcao.Direita);
+            robo.Direcao.Should().Be(Direcao.Leste);
         }
 
         [Test]
-        public void DeveAndarParaAEsquedaQuandoADirecaoForEsquerda()
+        public void DeveAndarParaAEsquerdaQuandoADirecaoForEsquerda()
         {
-            robo.Esquerda();
+            robo.MudarDirecao(Direcao.Oeste);
 
             robo.Andar();
 
@@ -43,23 +42,14 @@ namespace WalkingRobot.Testes
         }
 
         [Test]
-        public void DeveAndarParaAEsquedaQuandoADirecaoForDireita()
+        public void DeveAndarParaADireitaQuandoADirecaoForDireita()
         {
-            robo.Direita();
+            robo.MudarDirecao(Direcao.Leste);
 
             robo.Andar();
 
             var posicao = new Posicao(1, 0);
             robo.Posicao.Should().Be(posicao);
-        }
-
-        [Test]
-        public void DeveLancarExcecaoAoTentarAndarSemUmaDirecaoDefinida()
-        {
-            Action acao = () => robo.Andar();
-
-            acao.ShouldThrow<InvalidOperationException>()
-                    .WithMessage("O robô não possui uma direção definida");
         }
     }
 }
