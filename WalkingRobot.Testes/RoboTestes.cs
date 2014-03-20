@@ -21,7 +21,7 @@ namespace WalkingRobot.Testes
 
             robo = robo.MudarDirecao(Direcao.Oeste);
 
-            robo.Direcao.Should().Be(Direcao.Oeste);
+            robo.Incremento.Should().Be(Direcao.Oeste);
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace WalkingRobot.Testes
 
             robo = robo.MudarDirecao(Direcao.Leste);
 
-            robo.Direcao.Should().Be(Direcao.Leste);
+            robo.Incremento.Should().Be(Direcao.Leste);
         }
 
         [Test]

@@ -2,7 +2,7 @@
 {
     public class Robo
     {
-        public readonly Direcao Direcao;
+        public readonly IncrementoPosicao Incremento;
 
         public readonly Posicao Posicao;
 
@@ -14,25 +14,25 @@
             : this(posicao, Direcao.Leste)
         { }
 
-        public Robo(Direcao direcao)
-            : this(new Posicao(0, 0), direcao)
+        public Robo(IncrementoPosicao incremento)
+            : this(new Posicao(0, 0), incremento)
         { }
 
-        public Robo(Posicao posicao, Direcao direcao)
+        public Robo(Posicao posicao, IncrementoPosicao incremento)
         {
             Posicao = posicao;
-            Direcao = direcao;
+            Incremento = incremento;
         }
 
-        public Robo MudarDirecao(Direcao direcao)
+        public Robo MudarDirecao(IncrementoPosicao incremento)
         {
-            return new Robo(Posicao, direcao);
+            return new Robo(Posicao, incremento);
         }
 
         public Robo Andar()
         {
-            var novaPosicao = Posicao + IncrementoPosicao.ObterIncremento(Direcao);
-            return new Robo(novaPosicao, Direcao);
+            var novaPosicao = Posicao + Incremento;
+            return new Robo(novaPosicao, Incremento);
         }
     }
 }

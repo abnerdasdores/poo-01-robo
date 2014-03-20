@@ -1,10 +1,14 @@
 ﻿namespace WalkingRobot
 {
-    public enum Direcao 
+    public static class Direcao
     {
-        Norte,
-        Sul,
-        Leste,
-        Oeste
+        public static readonly IncrementoPosicao Norte = new IncrementoPosicao(0, 1);
+
+        public static readonly IncrementoPosicao Sul = new IncrementoPosicao(0, -1);
+
+        public static readonly IncrementoPosicao Leste = new IncrementoPosicao(1, 0);
+
+        public static readonly IncrementoPosicao Oeste = new IncrementoPosicao(-1, 0);
+        
     }
 }
